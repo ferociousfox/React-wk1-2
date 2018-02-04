@@ -15,7 +15,7 @@ _Instagram integrated react in 2012 and it was released as an open source techno
 
 **Library** : _Frameworks, like Angular, include some built-in functionalities for things like client-side routing or loading/saving/editing data from a database. React is only concerned with the view layer. Tools that offer a single facet of functionality like this are called libraries. They're usually integrated alongside other libraries and tools to create a customized stack that meets the needs of the particular project._
 
-**Highy-Dynamic** : _This simply refers to views that need to change and update **a** **lot**. React allows us to automatically, dynamically update the UI quickly, without reloading the page. So, any application or site that requires frequent, speedy updates is a great candidate for React._
+**Highly-Dynamic** : _This simply refers to views that need to change and update **a** **lot**. React allows us to automatically, dynamically update the UI quickly, without reloading the page. So, any application or site that requires frequent, speedy updates is a great candidate for React._
 
 ## What makes React great
 
@@ -69,16 +69,24 @@ _Instagram integrated react in 2012 and it was released as an open source techno
 ## The Virtual DOM
   * DOM: The Document Object Model is the browsers interpretation of the HTML it renders. The DOM is a language-independent model of objects that represent the structure of a document. whereas HTML is the markup language used to create and represent a DOM.
 ## how React makes updating the real DOM faster
+
   1. _React Creates its own Virtual DOM_ the virtual DOM is achieved through react's declarative language. when we use React's .createElement() we are creating new virtual elements to be rendered.
 
   2. _React Compares the Actual DOM to its Virtual DOM_ after crafting its own virtual DOM, React then compares it to the actual DOM in the browser, taking note of all the differences between the two.
 
   3. _React Calculates Changes_ it then automatically calculates the least number of changes necessary to update the actual DOM to match its virtual DOM. This process is known as "reconciliation".
 
-  4.  
+  4. _React updates the Actual DOM_ React then updates the actual DOM to match the virtual DOM only once, with the least number of necessary changes it has just calculated, Making each small change individually.
 
+  5. _Repeat_ each new update comes as the user takes actions.
 
+## Intro to JSX and Babel
 
+  * What's different about JSX from html
+
+  1. _Expressions_ in jsx make sure to **use curly brackets for expressions, including string interpolation**. i.e <h2>{new Date().toLocleTimeString()}</h2>
+
+  2. _Parent Elements_ **Always nest elements in a single parent element** ReactDOM.render() can only render a single React element at a time(with nearly as many children as desired).
 
 
 
