@@ -58,7 +58,12 @@ _Instagram integrated react in 2012 and it was released as an open source techno
   _**creating elements**: elements are the smallest building blocks of react apps they're JS objects that describe what we'd like displayed on the screen. check index.js for syntax. call 'React' to invoke the core library then 'createElement()' to do just that. this method takes at least three arguments:_
     * 1st the type (can be an HTML tag) or can be a React component.
     * 2nd the Props(the properties of the element), even if no props present we must include the curly braces.
-    * 3rd lists the children of this element. in this example case it is just the text of the h1 tag.
+    * 3rd lists the children of this element. in this example case it is just the text of the h1 tag. note: if there are more than three arguments you are specifying multiple children of the parent element.
 
   _Rendering elements with ReactDOM_
   ReactDOM.reder(): _first we tell it what to render, in this case that is the var greeting. Second we tell it where to render this element, 'react-app-root' in this case. Third the method can also take a callback function as a third argument._
+  
+  **How React.createElement() Works**
+  * ReactDOM.render() is acutally creating HTML elements using a method in JS's web API called Document.createElement() this method takes a single argument that returns a single HTML element. That means React.createElement() calls Doc.createElement() for each argument provided.
+
+  *
