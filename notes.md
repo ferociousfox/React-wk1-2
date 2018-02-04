@@ -45,3 +45,20 @@ _Instagram integrated react in 2012 and it was released as an open source techno
 
 * React Native and VR
   _React native is for building mobile-friendly applications with React. React VR is a framework for building VR apps using React and JS... NEAT_
+
+# END FIRST PAGE OF HOMEWORK
+
+## Creating and Rendering Basic Elements
+
+* notes on set up and implementing React
+  _Root DOM node(target container): this is the area of the page that react will manage, It should always be an empty div. Should have the id of app-root, react-container, or react-app-root._
+
+  _so we add a script tag below title to bring react in and add another script tag after the body to link with index.js_
+
+  _**creating elements**: elements are the smallest building blocks of react apps they're JS objects that describe what we'd like displayed on the screen. check index.js for syntax. call 'React' to invoke the core library then 'createElement()' to do just that. this method takes at least three arguments:_
+    * 1st the type (can be an HTML tag) or can be a React component.
+    * 2nd the Props(the properties of the element), even if no props present we must include the curly braces.
+    * 3rd lists the children of this element. in this example case it is just the text of the h1 tag.
+
+  _Rendering elements with ReactDOM_
+  ReactDOM.reder(): _first we tell it what to render, in this case that is the var greeting. Second we tell it where to render this element, 'react-app-root' in this case. Third the method can also take a callback function as a third argument._
