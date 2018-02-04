@@ -62,8 +62,30 @@ _Instagram integrated react in 2012 and it was released as an open source techno
 
   _Rendering elements with ReactDOM_
   ReactDOM.reder(): _first we tell it what to render, in this case that is the var greeting. Second we tell it where to render this element, 'react-app-root' in this case. Third the method can also take a callback function as a third argument._
-  
+
   **How React.createElement() Works**
   * ReactDOM.render() is acutally creating HTML elements using a method in JS's web API called Document.createElement() this method takes a single argument that returns a single HTML element. That means React.createElement() calls Doc.createElement() for each argument provided.
+
+## The Virtual DOM
+  * DOM: The Document Object Model is the browsers interpretation of the HTML it renders. The DOM is a language-independent model of objects that represent the structure of a document. whereas HTML is the markup language used to create and represent a DOM.
+## how React makes updating the real DOM faster
+  1. _React Creates its own Virtual DOM_ the virtual DOM is achieved through react's declarative language. when we use React's .createElement() we are creating new virtual elements to be rendered.
+
+  2. _React Compares the Actual DOM to its Virtual DOM_ after crafting its own virtual DOM, React then compares it to the actual DOM in the browser, taking note of all the differences between the two.
+
+  3. _React Calculates Changes_ it then automatically calculates the least number of changes necessary to update the actual DOM to match its virtual DOM. This process is known as "reconciliation".
+
+  4.  
+
+
+
+
+
+
+
+
+
+
+
 
   *
