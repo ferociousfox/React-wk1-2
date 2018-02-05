@@ -46,8 +46,6 @@ _Instagram integrated react in 2012 and it was released as an open source techno
 * React Native and VR
   _React native is for building mobile-friendly applications with React. React VR is a framework for building VR apps using React and JS... NEAT_
 
-# END FIRST PAGE OF HOMEWORK
-
 ## Creating and Rendering Basic Elements
 
 * notes on set up and implementing React
@@ -113,10 +111,29 @@ _Instagram integrated react in 2012 and it was released as an open source techno
     * _Resolve_
       * this tells Webpack to locate files with specific extentions.
 
-* _Babel_
-   have to stop and go pick up my daughter, time spent up ^to now is 5 hrs ten minutes^
-   ^resuming work now^
-   
+  <!-- _have to stop and go pick up my daughter, time spent up ^to now is 5 hrs ten minutes^_
+    _^resuming work now^_ -->
+
+## Functional Programing
+
+  * Functional programming uses basic functions as its building blocks instead of objects. Object-oriented programming organizes logic around the _things_ an application manages, whereas functional programming organizes an application around the _actions_ it performs.
+
+## Components
+
+  * Components are the building blocks of react.
+  * Most components in React are functionalities
+  * App.jsx is a standard naming convention for parent components.
+
+  * We always import React from the "react" npm package at the top of the file.
+
+  * **The Component is a function**
+
+  * the function returns the JSX this component will render in the browser
+
+  * components reside in their own file, and are exported as a module so other areas of the application may import it.
+
+  
+
 
 
 
