@@ -88,6 +88,32 @@ _Instagram integrated react in 2012 and it was released as an open source techno
 
   2. _Parent Elements_ **Always nest elements in a single parent element** ReactDOM.render() can only render a single React element at a time(with nearly as many children as desired).
 
+## Building an Environment
+
+  * _Environment_ a combination of project dependencies necessary for their project to functional listed below.
+    * _A Package Manager_ a tool to manage project dependencies. we'll continue to use Node's npm tool to install and manage packages. As in JS class we'll save dependencies to a package.json file.
+    * _A Transpiler_ to translate our JSX to ES5 we will use Babel
+    * _A Module Bundler_ to collect source code and dependency code and concatenates it into one big central file. This is best practice because it decreases load time and minifies code(further decreasing load time). we will use **webpack** as our module bundler because it has flexible configurations and a development server.
+
+  * _Setup_
+    1. navigate to app directory and run
+      * $ npm init
+    2. Make a .gitignore file with these listed
+      * .DS_STORE, node_modules, build
+    3. Install our module bundler
+      * $ npm install webpack@3.4.0 --save-dev
+    4. Then install globally (-g)
+
+  * _Unpacking Webpack_
+      * We require the webpack package and resolve the functionality from the path package at the top of the file. The 'path' library is a dependency of Webpack. It allows us to resolve file paths. **Resolving a path** is the act of providing a dedicated tool(like the path library) the name of a directory or file, and relying upon it to find the exact path. allowing us to shorten file paths significantly.
+    * _Entry_
+      * within the module we declare an entry specifying the file where the bundling process starts. An **entry point** is the file responsible for instructing the module bundler how to build the application.
+    * _Output_
+      * This tells Webpack where to place the bundle file it creates. **Path** points to a directory called 'build'. this is where our transpiled code, bundled source code will reside. We call resolve() and pass the directory name('build') and ('dirname'). **File name** determines the name of the file containing our bundled code.
+    * _Resolve_
+      * this tells Webpack to locate files with specific extentions.
+
+* _Babel_
 
 
 
