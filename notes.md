@@ -134,6 +134,7 @@ _Instagram integrated react in 2012 and it was released as an open source techno
 
 ## Passing Props
  * we pass props in component JSX tags.
+  _see ticketList.jsx_
 
  * some awesome props options:
   * MyExampleComponent.propTypes = {
@@ -161,7 +162,12 @@ _Instagram integrated react in 2012 and it was released as an open source techno
   _becuase react components must be pure, they cannot actually alter their props. they can only take their arguments(props), compose them together into a portion of the UI and return the JSX results to be rendered._
   _If a component needs to alter data, that data must be stored in something called state, never a prop. props are read-only._
 
+## Dev Server and Hot Module Replacement
 
+  * devServer has several configurations:
+    hot: true enables HMR on the local server.
+    contentBase points to the source code it will serve in the browser.
+    publicPath specifies where hot-reloaded modules should be loaded. **This should always match the publicPath option in output.**
 
 
   *
