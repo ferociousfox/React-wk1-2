@@ -114,8 +114,9 @@ _Instagram integrated react in 2012 and it was released as an open source techno
       * this tells Webpack to locate files with specific extentions.
 
 * _Babel_
-   have to stop and go pick up my daughter, time spent up to now is 5 hrs ten minutes
-
+   have to stop and go pick up my daughter, time spent up ^to now is 5 hrs ten minutes^
+   ^resuming work now^
+   
 
 
 
