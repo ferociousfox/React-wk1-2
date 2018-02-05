@@ -132,10 +132,34 @@ _Instagram integrated react in 2012 and it was released as an open source techno
 
   * components reside in their own file, and are exported as a module so other areas of the application may import it.
 
-  
+## Passing Props
+ * we pass props in component JSX tags.
 
+ * some awesome props options:
+  * MyExampleComponent.propTypes = {
+      exampleArray: PropTypes.array,
+      exampleBoolean: PropTypes.bool,
+      exampleFunction: PropTypes.func,
+      exampleNumber: PropTypes.number,
+      exampleObject: PropTypes.object,
+      exampleString: PropTypes.string,
+      exampleSymbol: PropTypes.symbol,
+      exampleReactElement: PropTypes.element,
+    }
+    exampleArrayOfNumbers: PropTypes.arrayOf(PropTypes.number),
+    exampleArrayOfStrings: PropTypes.arrayOf(PropTypes.string),
+    exampleClassTypeProp: PropTypes.instanceOf(ExampleClassName),
+    optionalEnum: PropTypes.oneOf(['ExampleClass', 'AnotherExampleClass']),
 
-
+## Pure Functions
+  * Pure function's return values are determined using only provided input values.
+  * Pure functions do not Ever alter external state or application data. i.e.
+  _consider_ function add(a, b){
+              return a + b;
+            }
+  _this function is pure because its return value is calculated using only the provided arguments(a and b), and it contains no code to alter anything else about the program. It accepts arguments(props) and returns a value(React elements)._
+  _becuase react components must be pure, they cannot actually alter their props. they can only take their arguments(props), compose them together into a portion of the UI and return the JSX results to be rendered._
+  _If a component needs to alter data, that data must be stored in something called state, never a prop. props are read-only._
 
 
 
