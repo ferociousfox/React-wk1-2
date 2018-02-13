@@ -178,8 +178,8 @@ _Instagram integrated react in 2012 and it was released as an open source techno
   * In React, state refers to the current condition and or circumstance of a component or other relevant data. And it can always change. As opposed to Props and PropTypes which do not change. States are fluid and ever-changing and props are not. And not all components are capable of possessing state.
 
   * there are two major ways we can define React components.
-    1. we can make a component by defining a function that returns JSX. These are called *stateless functional components*.
-    2. we can also define a component class. These are called *class components* or *class-based components*.
+    1. we can make a component by defining a function that returns JSX. These are called **stateless functional components**.
+    2. we can also define a component class. These are called **class components** or **class-based components**.
 
   * Functional Components cannot have state.
 
@@ -209,18 +209,18 @@ _Instagram integrated react in 2012 and it was released as an open source techno
   * the differences:
     1. Props can only be accessed by calling this.props.propName instead of props.PropName.
     2. Class-based components must include a render() method. the JSX returned by this method is what will be displayed in the browser.
-    3.the class must always extend the built-in *React.Component* class to inherit component functionality from the React library.
+    3.the class must always extend the built-in **React.Component** class to inherit component functionality from the React library.
 
 ## When to Use Classed Based Components
 
-  * We should *_only ever_ define a component as a class if it _absolutely requires_ state*. If a component does not require state, it should always be stateless functional component. Avoiding unnecessary use of state is an important rule in React. It is recommended to always begin React projects using _only_ stateless functional components, as we have done thus far. Then, _only_ refactor select components into class-based components as it becomes necessary. *We are expected to follow this process at Epicodus*.
+  * We should **_only ever_ define a component as a class if it _absolutely requires_ state**. If a component does not require state, it should always be stateless functional component. Avoiding unnecessary use of state is an important rule in React. It is recommended to always begin React projects using _only_ stateless functional components, as we have done thus far. Then, _only_ refactor select components into class-based components as it becomes necessary. **We are expected to follow this process at Epicodus**.
 
-## *Planning*: We'll need to complete these steps to program our app to display confirmation questions before the form:
+## **Planning**: We'll need to complete these steps to program our app to display confirmation questions before the form:
     1. First create a stateful classed-based component that will record whether our app is in the state of displaying questions, or in the state of displaying the form. We know this data must be state, not props, because it must be able to change.
-    2. Then we'll construct an *event* to toggle this state value when the user completes the questions.
+    2. Then we'll construct an **event** to toggle this state value when the user completes the questions.
     3. Next, we will create a new component to contain the questions we want to appear before the form.
     4. Next, we'll use JSX conditional rendering to change what's displayed depending on the current state. that way our app can go from the state of displaying questions to the state of displaying the form.
-    5. Finally we'll learn about something called *unidirectional flow*, a concept will allow our components to communicate and work in sync. (Also, refactor the event we create in step 2.)
+    5. Finally we'll learn about something called **unidirectional flow**, a concept will allow our components to communicate and work in sync. (Also, refactor the event we create in step 2.)
 
 ## Creating a Class-Based Stateful Component
 
@@ -249,27 +249,27 @@ _Instagram integrated react in 2012 and it was released as an open source techno
     * onload: the browser has finished loading the page.
   Event handlers can be used to handle, and verify, user input, user actions, and browser actions. HTML event attributes can execute JavaScript code directly, call JavaScript functions,
 
-  * We use the *onClick* event. this means the attached method will be triggered when the user clicks this text.
+  * We use the **onClick** event. this means the attached method will be triggered when the user clicks this text.
   * The {this.handleClick} portion states that a method from _this_ component called handleClick will be triggered went he element is clicked.
-  * in React, a method executed in response to an event is called an *event handler*. in this example we call our event handler, handleClick(), this is common practice to inclue the term *handle* in the name of an event hanler so devs can quickly discern them from other methods.
+  * in React, a method executed in response to an event is called an **event handler**. in this example we call our event handler, handleClick(), this is common practice to inclue the term **handle** in the name of an event hanler so devs can quickly discern them from other methods.
 
 ## Updating State
-  * Note that the built-in method setState() is used instead of altering the state directly. Doing something like this ( this.state = {formVisibleOnPage: false}; ) anywhere outside the constructor *will not work*
-  * *the _only_ way we can update state outside of constructor() is by using the built-in method setState(): ( this.setState({formVisibleOnPage: true}); ).*
+  * Note that the built-in method setState() is used instead of altering the state directly. Doing something like this ( this.state = {formVisibleOnPage: false}; ) anywhere outside the constructor **will not work**
+  * **the _only_ way we can update state outside of constructor() is by using the built-in method setState(): ( this.setState({formVisibleOnPage: true}); ).**
 
 ## Binding Methods
-  * "this": when creating objects in intro we deifined constructors that use *this* to express when a  property was *bound to an instance of an object*. Each individual instance of these properties are bound to a specific *Contact* object. Then, we used prototypes to create methods that were *also* bound to our objects. A *bound method* is just method with its *this* keyword already defined. It's bound to an instance.
-  But JavaScript *class methods are not bound by default*. Unlike the address book example our NewTicketControl component is a _class_. This means handleClick() is *not* bound, because it is not bound its *this* keyword in "this.setState({formVisibleOnPage: true});" is null. Which is why the error comes up in the console. So, we move the method into the constructor.
+  * "this": when creating objects in intro we deifined constructors that use **this** to express when a  property was **bound to an instance of an object**. Each individual instance of these properties are bound to a specific **Contact** object. Then, we used prototypes to create methods that were **also** bound to our objects. A **bound method** is just method with its **this** keyword already defined. It's bound to an instance.
+  But JavaScript **class methods are not bound by default**. Unlike the address book example our NewTicketControl component is a _class_. This means handleClick() is **not** bound, because it is not bound its **this** keyword in "this.setState({formVisibleOnPage: true});" is null. Which is why the error comes up in the console. So, we move the method into the constructor.
 
-  *_BREAK IT DOWN_*
-  * the constructor() _does_ know what *this* is, because it defines and creates each instance of our component. That's why we may successfully call things like *this.state={};* in constuctor().
-  *  By stating *this.handleClick* we're referring to _this_ component's handleClick() method..
-  * we're setting *this.handleClick* equal to *this.handleClick.bind(this);*. this line redefines the default unbound handleClick() method as its manually-bound equivalent. * Calling *.bind(this);* on *this.handleClick* binds the method to an instance of the component. This ensures the *this* in *handleClick()* matches the value of *this* from within *constuctor()*.
-    * Summary *constructor()* is invoked whenever a new component is created. As part of the creation process the *constructor()* will now define the *this* used in handleClick() to match the value of its own *this*. That is. the component constructor() is instantiating.
+  **_BREAK IT DOWN_**
+  * the constructor() _does_ know what **this** is, because it defines and creates each instance of our component. That's why we may successfully call things like **this.state={};** in constuctor().
+  *  By stating **this.handleClick** we're referring to _this_ component's handleClick() method..
+  * we're setting **this.handleClick** equal to **this.handleClick.bind(this);**. this line redefines the default unbound handleClick() method as its manually-bound equivalent. * Calling **.bind(this);** on **this.handleClick** binds the method to an instance of the component. This ensures the **this** in **handleClick()** matches the value of **this** from within **constuctor()**.
+    * Summary **constructor()** is invoked whenever a new component is created. As part of the creation process the **constructor()** will now define the **this** used in handleClick() to match the value of its own **this**. That is. the component constructor() is instantiating.
 
 ## Conditional Rendering
 
-  * After a user clicks the yes button we have just made, we want to update the formVisibleOnPage state value and render the new ticke from in place of the confirmation questions. So far, our render() methodin NewTicketControl ahs only returned JSX. But like any other method, we may include logic before the return statement. Adding logic to NewTicketControl's render() can conditionally render different content depending on the value of *formVisibleOnPage*.
+  * After a user clicks the yes button we have just made, we want to update the formVisibleOnPage state value and render the new ticke from in place of the confirmation questions. So far, our render() methodin NewTicketControl ahs only returned JSX. But like any other method, we may include logic before the return statement. Adding logic to NewTicketControl's render() can conditionally render different content depending on the value of **formVisibleOnPage**.
 
 ## Data flow (in the case of this example)
   * we first want to think of what data we want to move to where.
@@ -288,7 +288,7 @@ _Instagram integrated react in 2012 and it was released as an open source techno
 
 ## Unidirectional Data Flow
 
-  * is a language-agnostic term for applications whose data flows in one direction. this is commonly called a "top-down" or "unidirectional" data flow. Any state is always owned by a specific component, and any data or UI derived from that *state can only affect components "below" them in the tree*. Therefore New could pass data to ConfirmationQuestions. _BUT_ ConfirmationQuestions *cannot* pass data up to NewTicketControl. not only would miving data in this direction completely break the rules of unidirectional data flow, but it is also impossible. because, remember, stateless components are unaware of their parent. _React components are SUPER modular_.
+  * is a language-agnostic term for applications whose data flows in one direction. this is commonly called a "top-down" or "unidirectional" data flow. Any state is always owned by a specific component, and any data or UI derived from that **state can only affect components "below" them in the tree**. Therefore New could pass data to ConfirmationQuestions. _BUT_ ConfirmationQuestions **cannot** pass data up to NewTicketControl. not only would miving data in this direction completely break the rules of unidirectional data flow, but it is also impossible. because, remember, stateless components are unaware of their parent. _React components are SUPER modular_.
 
 ## Implementing Data Flow with Callbacks
 
@@ -302,8 +302,8 @@ _Instagram integrated react in 2012 and it was released as an open source techno
 ## Forms and Refs
 
   * _Planning_ :
-    1. We will ad something called *refs* to our form. They will allow us to collect information users place in form fields.
-    2. Once we're able to gather user-provided data, we'll need decide where to keep it. We'll learn how to use a concept/best practice called *lifting state* to structure our React applications and their state in the most efficient manner.
+    1. We will ad something called **refs** to our form. They will allow us to collect information users place in form fields.
+    2. Once we're able to gather user-provided data, we'll need decide where to keep it. We'll learn how to use a concept/best practice called **lifting state** to structure our React applications and their state in the most efficient manner.
     3. Once we've determined where to keep our new state we'll add code that will move user-provided data to this location, similar to the manner we "moved" info between ConfirmationQuestions and NewTicketControl.
     4. Next we'll add code to dynaimcally render our new stateful list of user-created tickets.
     5. Finally, we'll implement a quick-and-easy library called UUID that will assign unique IDs to each ticket.
@@ -315,17 +315,17 @@ _Instagram integrated react in 2012 and it was released as an open source techno
       * Then, define the event handler before return().
 
   * _Refs_ :
-    * Gathering user input: to gather this from the form after submit. we'll use a reference(known as a *ref*) to handle this. A *ref* is an identifier used to reference DOM elements.
+    * Gathering user input: to gather this from the form after submit. we'll use a reference(known as a **ref**) to handle this. A **ref** is an identifier used to reference DOM elements.
 
 ## Lifting State - part 1
 
-  * _types of state_ : in our example of NewTicketControl component contains a formVisibleOnPage state value(boolean). This value is used exclusively by NewTicketControl. Even though both NewTicketForm and ConfirmationQuestions are rendered conditionally based on the state boolean value, the state itself never leaves NewTicketControl. This is important to mention because there are actually two types of state: *application state* and *local state*, and they should each be stored in different locations.
-    * *local state:* the state contained within NewTicketControl is an example of local state because it never leaves the file, nor is it referenced elsewhere. State to hide and show contednt is a common example of local state.
-    * *application state:* state shared and used throughout _multiple_ components. Application state is usually the main "type" of data an application is responsible for working with.
-    * _deciding between the two_: the first step in deciding where to store state is determining whether it is application or local state because *application state must be stored in a location where it can be passed down to _all components_ that use it.* Remember, *unidirectional data flow* data must only flow downward. This mens any instances of application state must reside "above" all components that require it. *Local state*, on the other hand, can just reside in what ever component it's local to, since we don't need to consider the implications of unidirectional data flow.
-    * *Where to Place Application State* : unlike Angular there is no universal rule dictating the exact spot state should reside. It's up to us to make that decision based on the needs and structure of our individual app.
+  * _types of state_ : in our example of NewTicketControl component contains a formVisibleOnPage state value(boolean). This value is used exclusively by NewTicketControl. Even though both NewTicketForm and ConfirmationQuestions are rendered conditionally based on the state boolean value, the state itself never leaves NewTicketControl. This is important to mention because there are actually two types of state: **application state** and **local state**, and they should each be stored in different locations.
+    * **local state:** the state contained within NewTicketControl is an example of local state because it never leaves the file, nor is it referenced elsewhere. State to hide and show contednt is a common example of local state.
+    * **application state:** state shared and used throughout _multiple_ components. Application state is usually the main "type" of data an application is responsible for working with.
+    * _deciding between the two_: the first step in deciding where to store state is determining whether it is application or local state because **application state must be stored in a location where it can be passed down to _all components_ that use it.** Remember, **unidirectional data flow** data must only flow downward. This mens any instances of application state must reside "above" all components that require it. **Local state**, on the other hand, can just reside in what ever component it's local to, since we don't need to consider the implications of unidirectional data flow.
+    * **Where to Place Application State** : unlike Angular there is no universal rule dictating the exact spot state should reside. It's up to us to make that decision based on the needs and structure of our individual app.
 
-  * Lifting state: a general best practice stated by React --several components need to reflect the same changing data. We recommend lifting the shared state up to their closest common ancestor. As apposed to angular where we would have _always_ placed data at the very top of the component tree, we only place it as "high" as _necessary_. That is *the closest common ancestor of all components that need the application state data*. This keeps React applications performant by ensuring data is only loaded in the areas that absolutely require it. This process of placing application state only as high in the component tree as necessary is called *lifting state*. Again: *when we work with state that affects multiple components, we must find the components' closest common parent, and lift the data up to that parent. The parent then passes the  data down to any children that require it.*
+  * Lifting state: a general best practice stated by React --several components need to reflect the same changing data. We recommend lifting the shared state up to their closest common ancestor. As apposed to angular where we would have _always_ placed data at the very top of the component tree, we only place it as "high" as _necessary_. That is **the closest common ancestor of all components that need the application state data**. This keeps React applications performant by ensuring data is only loaded in the areas that absolutely require it. This process of placing application state only as high in the component tree as necessary is called **lifting state**. Again: **when we work with state that affects multiple components, we must find the components' closest common parent, and lift the data up to that parent. The parent then passes the  data down to any children that require it.**
     * Lifting State Questions to consider:
       1. _Should this data be application or local state_?
         * to determine this we need to consider _where_  data will be used because we want to take user-provided values from form fields, and turn them into individual Ticket components rendered within TicketList, this data _has_ to be application state becuase multiple components will use it. (If, in future apps, the answer to the question is local state, you would simply store the data in the component it is local to.)
@@ -342,13 +342,13 @@ _Instagram integrated react in 2012 and it was released as an open source techno
     1. get user-provided ticket data from NewTicketForm _up_ to where application state is now stored in App.
     2. Ensure the masterTicketList data is also passed down to TicketList and Ticket components, so we can render out ticket datat in the browser.
   * _Inverse Data Flow_
-    * This is a specific kind of unidirectional data flow. React documentation defines it as *the passing of information from a component to the nearest parent component with shared state*. this means that getting user provided data from NewTicketForm into App, where the application state reside, will be *inverse data flow*.
+    * This is a specific kind of unidirectional data flow. React documentation defines it as **the passing of information from a component to the nearest parent component with shared state**. this means that getting user provided data from NewTicketForm into App, where the application state reside, will be **inverse data flow**.
     * _Implementing Inverse Data Flow with Callbacks_
-      * to do this we employ a callback method passed through the component tree as a prop just like handleTroubleshootingConfirmation() callback we created in NewTicketControl. (see unidirectional data flow ordered list) Remember *we cannot alter state directly*. we can _only_ alter state using *setState() and setState() takes a key:value pair*: the state we are updating and adn the _new_ vallue we'd like to update it to. So we must create a temporary copy of our array. Push the new tickit to this temp version, then set state eqaul to this updated iteration of our array.
+      * to do this we employ a callback method passed through the component tree as a prop just like handleTroubleshootingConfirmation() callback we created in NewTicketControl. (see unidirectional data flow ordered list) Remember **we cannot alter state directly**. we can _only_ alter state using **setState() and setState() takes a key:value pair**: the state we are updating and adn the _new_ vallue we'd like to update it to. So we must create a temporary copy of our array. Push the new tickit to this temp version, then set state eqaul to this updated iteration of our array.
     * _Binding Methods_
-      * Also notie the handleAddingNewTicketToList() function uses *this* when it calls *this.setState()*. That means we'll jave to bind the method in the components constructor.
+      * Also notie the handleAddingNewTicketToList() function uses **this** when it calls **this.setState()**. That means we'll jave to bind the method in the components constructor.
     * _passing a Callback from Parent to Child_
-      * now that our App component now contains a method that will update its masterTicketList state to include new tickets. Next we need to pass this callback function down to NewTicketForm so it may call it when the user submits the form by changing the syndax in the Route element. we are essentially just overriding the built-in render() method of this Route to return the JSX for our component and its prop. Specifically we're stating NewTicketControl has a onNewTicketCreation prop which contains the handleAddingNewTicketToList() method from App.jsx. Also, notice the naming convention we've used here. when passing functions as props they should be named *in a way that depicts _when_ they'll eb called*. teh original method is preceded by *handle*, then when we pass it down as a prop we precede it with *on*.
+      * now that our App component now contains a method that will update its masterTicketList state to include new tickets. Next we need to pass this callback function down to NewTicketForm so it may call it when the user submits the form by changing the syndax in the Route element. we are essentially just overriding the built-in render() method of this Route to return the JSX for our component and its prop. Specifically we're stating NewTicketControl has a onNewTicketCreation prop which contains the handleAddingNewTicketToList() method from App.jsx. Also, notice the naming convention we've used here. when passing functions as props they should be named **in a way that depicts _when_ they'll eb called**. teh original method is preceded by **handle**, then when we pass it down as a prop we precede it with **on**.
       * Declaring Proptypes: since we added a new prop to the NewTicketControl component, we'll need to update its PropTypes.
     * _passing a Callback from Child to Grandchild_
       * We declare that NewTicketForm will have a prop called onNewTicketCreation and set it equal to this.props.onNewTicketCreation. Notice that unlike the first time we passed this function down the component tree, we was call this.props first, becuase in the context of NewTicketControl, this function is a prop.
@@ -367,15 +367,40 @@ _Instagram integrated react in 2012 and it was released as an open source techno
 
 
 
+## Lifecycle Methods
 
+  * Mounting
+    * constructor()
+    * componentWillMount()
+    * componentDidMount()
+    * render()
 
+   * updating
+    * componentWillReceiveProps()
+    * shouldComponentUpdate() :boolean return, default is true, false will prevent the following methods
+    * componentWillUpdate()
+    * componentDidUpdate()
+    * render()
 
+  * Unmounting
+    * componentWillUnmount()
 
+  Related methods:
+    * setState() // forceUpdate()
 
+## Most commonly used Lifecycle methods:
+  * **componentWillMount()**: is automatically called before a component is mounted in the DOM, right before render() is called. _Remember methods prefixed with *will* are called right before something happens, and methods prefixed with *did* are called right after something happens_
 
+  * **render()**: is required, because rendering DOM si the end goal of every component.
 
+  * **componentDidMount()**: occurs right after something happens, it's automatically called immediately after a component is rendered with render(). if you need to set a process like setInterval() in action, componentDidMount() is the best place to do so.
 
+  * **componentWillUnMount()**: unlike the last two Lifecycle methods, componentWillUnmount() belongs to the unmounting phase of a component's lifecycle. it's often called the "cleanup" method, becuase it can remove any DOM elements, or timers, no longer in use.
 
+## Note:
+  **_only stateful components have lifecycle methods_**: this is because state-_less_ functional components are meant to handle _static, unchanging_ information passed in as props, and return a synthesis of props and JSX in the form of a React.createElement() call.
+
+## Updating State with Lifecycle Methods
 
 
 
